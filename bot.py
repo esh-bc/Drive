@@ -1,7 +1,7 @@
 import os
 import re
 import logging
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, CopyTextButton
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -202,14 +202,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 f"\u25b6 Get All Links  ({total})",
                 callback_data=f"links:{folder_id}:0",
                 style="success",            # green
-            ),
-        ],
-        [
-            # CopyTextButton = 1-tap copies ALL links to clipboard
-            InlineKeyboardButton(
-                f"\u29c9 Copy All {total} Links",
-                copy_text=CopyTextButton(text=all_links_str),
-                style="primary",            # blue
             ),
         ],
         [
